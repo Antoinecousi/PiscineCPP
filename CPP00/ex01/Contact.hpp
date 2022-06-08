@@ -6,7 +6,7 @@
 /*   By: acousini <acousini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 15:26:44 by acousini          #+#    #+#             */
-/*   Updated: 2022/06/03 17:15:28 by acousini         ###   ########.fr       */
+/*   Updated: 2022/06/07 17:32:23 by acousini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,6 @@ public:
 
     Contact( void );
     ~Contact( void );
-
-    void    addContact( void );
-    int     searchContact( void );
 };
 
 #endif

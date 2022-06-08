@@ -1,30 +1,25 @@
-NAME			=	cpp00
+NAME = phonebook
 
-SRCS			=	Contact.cpp \
-					PhoneBook.cpp
+SRCS =	PhoneBook.cpp \
 
-OBJS			=	${SRCS:.cpp=.o}
+OBJS = $(SRCS:.cpp=.o)
 
-HEAD			=	-I include
+FLAGS = -Wall -Wextra -Werror
 
-CC				=	c++
+CC = clang++
 
-CFLAGS			=	-Wall -Werror -Wextra -std=c++98
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
-.c.o			:
-					${CC} ${CFLAGS} ${HEAD} -c $< -o ${<:.cpp=.o}
+$(NAME): $(OBJS)
+	@$(CC) $(FLAGS) -o $(NAME) $(OBJS)
 
-$(NAME)			:	${OBJS}
-					@${CC} ${CFLAGS} ${OBJS} -lpthread -o ${NAME}
+all: $(NAME)
 
-all				:	${NAME}
+clean :
+	rm -f $(OBJS)
 
-clean			:
-					@rm -rf ${OBJS}
+fclean : clean
+	rm -f $(NAME)
 
-fclean			:	clean
-					@rm -rf ${NAME}
-
-re				:	fclean all
-
-.PHONY			:	all clean fclean re
+re : fclean all

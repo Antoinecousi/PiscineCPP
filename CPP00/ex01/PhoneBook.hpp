@@ -6,7 +6,7 @@
 /*   By: acousini <acousini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 15:26:53 by acousini          #+#    #+#             */
-/*   Updated: 2022/06/03 17:15:30 by acousini         ###   ########.fr       */
+/*   Updated: 2022/06/07 17:16:37 by acousini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,21 @@
 
 #include <iostream>
 #include <string>
+#include "Contact.hpp"
 
 class PhoneBook {
-    
+
 private:
 
-    
+
 public:
     Contact contacts[8];
 
-    PhoneBook( void );
-    ~PhoneBook( void );
+    PhoneBook(void);
+    ~PhoneBook(void);
 
-    void    addContact( void );
-    int     searchContact( void );
+    void    addContact(void);
+    void    searchContact(void);
 };
 
 #endif
