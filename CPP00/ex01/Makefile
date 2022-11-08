@@ -1,12 +1,14 @@
 NAME = phonebook
 
 SRCS =	PhoneBook.cpp \
+		Contact.cpp \
+		main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 FLAGS = -Wall -Wextra -Werror
 
-CC = clang++
+CC = c++
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@

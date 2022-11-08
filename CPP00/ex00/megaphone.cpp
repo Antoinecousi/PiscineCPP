@@ -6,7 +6,7 @@
 /*   By: acousini <acousini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 14:30:19 by acousini          #+#    #+#             */
-/*   Updated: 2022/06/01 15:10:10 by acousini         ###   ########.fr       */
+/*   Updated: 2022/08/09 11:49:45 by acousini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int		main(int ac, char **av)
 			std::cout << c;
 		}
 		i++;
-		std::cout << ' ';
 	}
 	std::cout << std::endl;
 	return (0);

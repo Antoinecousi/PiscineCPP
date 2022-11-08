@@ -6,7 +6,7 @@
 /*   By: acousini <acousini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 15:26:53 by acousini          #+#    #+#             */
-/*   Updated: 2022/06/07 17:16:37 by acousini         ###   ########.fr       */
+/*   Updated: 2022/08/10 18:43:59 by acousini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,18 @@
 class PhoneBook {
 
 private:
-
+    Contact contacts[8];
+	int		count;
+	int		reader;
 
 public:
-    Contact contacts[8];
+    PhoneBook();
+    ~PhoneBook();
 
-    PhoneBook(void);
-    ~PhoneBook(void);
-
-    void    addContact(void);
-    void    searchContact(void);
+	void	getContact();
+	void	addContact(Contact c);
+	void	List(void);
+	int		Count(void);
 };
 
 #endif

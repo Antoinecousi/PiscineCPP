@@ -6,7 +6,7 @@
 /*   By: acousini <acousini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 15:26:52 by acousini          #+#    #+#             */
-/*   Updated: 2022/06/07 17:17:04 by acousini         ###   ########.fr       */
+/*   Updated: 2022/08/10 11:53:29 by acousini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,14 @@ int		main()
 		std::getline (std::cin,line);
 		if (line.compare("ADD") == 0)
 		{
-			repertoire.addContact();
+			Contact c;
+			c.Add();
+			repertoire.addContact(c);
 		}
 		else if (line.compare("SEARCH") == 0)
 		{
-			repertoire.searchContact();
+			repertoire.List();
+			repertoire.getContact();
 		}
 		else if (line.compare("EXIT") == 0)
 			exit(0);
