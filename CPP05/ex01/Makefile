@@ -1,4 +1,4 @@
-NAME			=	Polymorphism3
+NAME			=	Bureaucrat
 
 SRCS			=	${shell find -type f -name "*.cpp"}
 

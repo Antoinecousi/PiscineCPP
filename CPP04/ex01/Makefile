@@ -8,7 +8,7 @@ HEAD			=	-I include
 
 CC				=	c++
 
-CFLAGS			=	-Wall -Werror -Wextra -std=c++98 -g3
+CFLAGS			=	-Wall -Werror -Wextra -std=c++98 #-g3
 
 .c.o			:
 					${CC} ${CFLAGS} ${HEAD} -c $< -o ${<:.cpp=.o}
