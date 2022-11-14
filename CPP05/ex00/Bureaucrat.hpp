@@ -1,6 +1,5 @@
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
-#include "Form.hpp"
 #include <string>
 #include <iostream>
 
@@ -18,7 +17,6 @@ class Bureaucrat
 		void			decreaseGrade();
 		std::string		getName() const; 
 		int			 	getGrade() const;
-		void			signForm(Form &formulaire);
 
 	private:
 		int					_grade;

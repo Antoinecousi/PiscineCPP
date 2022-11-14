@@ -59,17 +59,3 @@ int			Bureaucrat::getGrade() const
 {
 	return _grade;
 }
-
-void		Bureaucrat::signForm(Form &formulaire)
-{
-	try
-	{
-		formulaire->beSigned(this);
-		std::cout << _name << " signed " << formulaire->getName();
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << _name << " couldn't sign " << formulaire->getName() << " because " << e.what() << std::endl;
-	}
-	
-}

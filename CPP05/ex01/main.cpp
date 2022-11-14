@@ -1,66 +1,45 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main(void)
 {
+	std::cout << "\n\n\n\n\n\n";
 	{
 		try
 		{
-			Bureaucrat John;
+			Form f("Form", -1, 344);
 		}
-		catch(const std::exception& e)
+		catch (std::exception & e)
 		{
-			std::cerr << e.what() << std::endl;
-		}
-		try
-		{
-			Bureaucrat William("William", 145);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
+			std::cout << e.what() << std::endl;
 		}
 		try
 		{
-			Bureaucrat Peter("Peter", 151);
+			Form f("Form2", -1, 14);
 		}
-		catch(const std::exception& e)
+		catch (std::exception & e)
 		{
-			std::cerr << e.what() << std::endl;
-		}	
-		try
-		{
-			Bureaucrat Christian("Christian", 0);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-		try
-		{
-			Bureaucrat Johnny("Johnny", 5);
-			std::cout << Johnny << std::endl;
-			for (int i = 0; i < 8; i++)
-			{
-				Johnny.increaseGrade();
-			}
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-		try
-		{
-			Bureaucrat Mary("Mary", 145);
-			for (int i = 0; i < 3; i++)
-			{
-				Mary.decreaseGrade();
-			}
-			std::cout << Mary << std::endl;
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
+			std::cout << e.what() << std::endl;
 		}
 	}
+
+	std::cout << std::endl;
+	
+	Bureaucrat Britney("Britney", 50);
+	Form	f("formulaire", 49, 50);
+	Form	visa("visa", 49, 49);
+	std::cout << Britney << std::endl;
+
+	std::cout << f << std::endl;
+	Britney.signForm(f);
+	std::cout << f << std::endl;
+	
+
+	std::cout << visa << std::endl;
+	Britney.signForm(visa);
+	std::cout << visa << std::endl;
+
+
+	std::cout << "\n\n\n\n\n\n";
 	return (0);
 }
