@@ -15,6 +15,7 @@ int		check_errors(int argc, char **argv)
 		std::cout << "String is empty." << std::endl;
 		return (1);
 	}
+	return (0);
 }
 
 int		main(int argc, char **argv)

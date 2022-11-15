@@ -15,6 +15,7 @@ int main(void)
 
 	ScavTrap totita("Marc Antoine");
 	totita.attack("Stephane le moine");
+	totita.guardGate();
 	totita.takeDamage(100);
 	totita.beRepaired(90);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: acousini <acousini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 15:26:52 by acousini          #+#    #+#             */
-/*   Updated: 2022/08/10 18:48:46 by acousini         ###   ########.fr       */
+/*   Updated: 2022/11/14 15:19:40 by acousini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ PhoneBook::~PhoneBook(void) {}
 
 PhoneBook::PhoneBook()
 {
-	this->count = 0;
-	this->reader = 0;
+	_count = 0;
+	_reader = 0;
 }
 
 void	PhoneBook::addContact(Contact person)
 {
-	contacts[this->count] = person;
-	this->count++;
-	if (this->count == 8)
+	_contacts[_count] = person;
+	_count++;
+	if (_count == 8)
 	{
-		this->reader = 1;
-		this->count = 0;
+		_reader = 1;
+		_count = 0;
 	}
 }
 
@@ -56,16 +56,16 @@ void	PhoneBook::List()
 	Contact	c;
 	
 	i = 0;
-	if (this->count > 8)
-		i = this->count - 8;
+	if (_count > 8)
+		i = _count - 8;
 	Display("Index");
 	Display("First Name");
 	Display("Last Name");
 	Display("Nickname");
 	std::cout << std::endl;
-	while (i < this->count || (this->reader == 1 && i < 8))
+	while (i < _count || (_reader == 1 && i < 8))
 	{
-		c = this->contacts[i];
+		c = _contacts[i];
 		Display(std::to_string(i));
 		Display(c.getValue(0));
 		Display(c.getValue(1));
@@ -84,9 +84,9 @@ void	PhoneBook::getContact()
 	int result = -1;
 	while (1)
 	{
-		if (this->count == 0 && this->reader == 0)
+		if (_count == 0 && _reader == 0)
 		{
-			std::cout << "There is no contacts registered yet. Return to main menu" << std::endl;
+			std::cout << "There is no _contacts registered yet. Return to main menu" << std::endl;
 			break;
 		}
 		std::cout << "Enter an index you want to display" << '\n';
@@ -99,13 +99,13 @@ void	PhoneBook::getContact()
 			std::cout << "Error: index must be a number" << std::endl;
 			continue ;
 		}
-		if (this->reader == 0 && (result < 0 || result >= this->count))
-			std::cout << "Index has to be between 0 and " << this->count - 1 << std::endl;
-		else if (this->reader == 1 && (result < 0 || result > 7))
+		if (_reader == 0 && (result < 0 || result >= _count))
+			std::cout << "Index has to be between 0 and " << _count - 1 << std::endl;
+		else if (_reader == 1 && (result < 0 || result > 7))
 			std::cout << "Index has to be between 0 and 7" << std::endl;
 		else
 		{
-			contacts[result].Display();
+			_contacts[result].Display();
 			break;
 		}
 	}

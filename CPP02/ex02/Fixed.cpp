@@ -2,6 +2,8 @@
 
 Fixed::Fixed() : _decimals(0)
 {
+	std::cout << this->toFloat() << std::endl;
+
 }
 
 Fixed::Fixed(const int number)
@@ -30,13 +32,15 @@ Fixed &	Fixed::operator=(Fixed const &rhs)
 Fixed &	Fixed::operator++(void)
 {
 	_decimals++;
-	return(*this);	
+	std::cout << _decimals << std::endl;
+	return(*this);
 }
 
 Fixed	Fixed::operator++(int)
 {
 	Fixed	copy(*this);
 	operator++();
+	std::cout << _decimals << std::endl;
 	return (copy);
 }
 
@@ -145,9 +149,14 @@ void	Fixed::setRawBits( int const raw )
 	this->_decimals = raw;
 }
 
+int		Fixed::decimals()
+{
+	return _decimals;
+}
+
 float	Fixed::toFloat(void) const
 {
-	return ((float)_decimals / (float)(256));
+	return ((float)_decimals / (float)256);
 }
 
 int	Fixed::toInt(void) const

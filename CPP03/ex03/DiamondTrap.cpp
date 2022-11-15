@@ -41,5 +41,13 @@ void	DiamondTrap::whoAmi(void)
 
 DiamondTrap &	DiamondTrap::operator=(DiamondTrap const &rhs)
 {
-	
+	if ( this != &rhs )
+	{
+		this->ClapTrap::_name = rhs.ClapTrap::_name;
+		this->_name = rhs._name;
+		this->_hitPoints = rhs._hitPoints;
+		this->_energyPoints = rhs._energyPoints;
+		this->_attackDamage = rhs._attackDamage;
+	}
+	return *this;
 }

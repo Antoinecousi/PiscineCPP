@@ -15,9 +15,16 @@ int main(void)
 	totita.beRepaired(90);
 
 	FragTrap Francoise("Francoise");
-	totita.attack("Ambroise");
-	totita.takeDamage(100);
-	totita.beRepaired(90);
+	Francoise.attack("Ambroise");
+	Francoise.highFivesGuys();
+	Francoise.takeDamage(100);
+	Francoise.beRepaired(90);
+	
+	FragTrap Franco;
+	Franco.attack("Ambroise");
+	Franco.highFivesGuys();
+	Franco.takeDamage(100);
+	Franco.beRepaired(90);
 	
 	return (0);
 }

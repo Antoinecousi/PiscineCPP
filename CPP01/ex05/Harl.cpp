@@ -22,7 +22,7 @@ void	Harl::complain(std::string level)
 		if (level == sentence[i])
 			return (this->*(c[i]))();
 	}
-	std::cout << "Sorry, I didn't hear you. What the fuck did u just say u fakin twat?" << std::endl;
+	std::cout << "Sorry, I didn't hear you. What did u say?" << std::endl;
 }
 
 // ---------------- PRIVATE FUNCTIONS ----------------------

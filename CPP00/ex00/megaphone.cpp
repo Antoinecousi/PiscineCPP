@@ -6,7 +6,7 @@
 /*   By: acousini <acousini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 14:30:19 by acousini          #+#    #+#             */
-/*   Updated: 2022/08/09 11:49:45 by acousini         ###   ########.fr       */
+/*   Updated: 2022/11/14 15:10:11 by acousini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		main(int ac, char **av)
 		j = 0;
 		while (av[i][j])
 		{
-			c = toupper(av[i][j++]);
+			c = std::toupper(av[i][j++]);
 			std::cout << c;
 		}
 		i++;

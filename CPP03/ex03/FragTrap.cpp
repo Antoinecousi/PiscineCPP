@@ -44,6 +44,7 @@ FragTrap &	FragTrap::operator=(FragTrap const &rhs)
 	_attackDamage = rhs._attackDamage;
 	_name = rhs._name;
 	std::cout << "FragTrap overload operator constructor" << std::endl;
+	return *this;
 }
 
 void	FragTrap::highFivesGuys(void)

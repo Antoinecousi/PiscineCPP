@@ -11,8 +11,8 @@ int		main()
 	randomChump("Le chien");
 	b.announce();
 	c->announce();
-	delete(c);
 	Zombie a("Steve Jobs");
-	std::cout << "Steve & Arnold are on the stack, they'll die at the end of the main scope" << std::endl;
 	a.announce();
+	delete(c);
+	std::cout << "Steve & Arnold are on the stack, they'll die at the end of the main scope" << std::endl;
 }

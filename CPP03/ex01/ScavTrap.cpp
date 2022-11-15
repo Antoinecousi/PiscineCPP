@@ -33,6 +33,7 @@ ScavTrap &	ScavTrap::operator=(ScavTrap const &rhs)
 	_attackDamage = rhs._attackDamage;
 	_name = rhs._name;
 	std::cout << "ScavTrap overload operator constructor" << std::endl;
+	return (*this);
 }
 
 void	ScavTrap::guardGate(void)

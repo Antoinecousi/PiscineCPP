@@ -1,10 +1,10 @@
-NAME			=	decimals
+NAME			=	Bank
 
 SRCS			=	${shell find -type f -name "*.cpp"}
 
 OBJS			=	${SRCS:.cpp=.o}
 
-HEAD			=	-I include
+HEAD			=	-I includes
 
 CC				=	c++
 
@@ -19,7 +19,7 @@ $(NAME)			:	${OBJS}
 all				:	${NAME}
 
 clean			:
-					@rm -rf ${OBJS}
+					@rm -rf ${OBJS}q
 
 fclean			:	clean
 					@rm -rf ${NAME}

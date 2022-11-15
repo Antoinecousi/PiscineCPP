@@ -1,16 +1,18 @@
 #include "Weapon.hpp"
 
+Weapon::Weapon()
+{
+	this->_type = "random attack club";
+	return ; 
+}
+
 Weapon::Weapon(std::string p_name)
 {
 	this->_type = p_name;
 }
 
-Weapon::~Weapon(void)
-{
-	
-}
 
-const std::string &	Weapon::getType()
+std::string const &	Weapon::getType() const
 {
 	return (this->_type);
 }
@@ -18,4 +20,10 @@ const std::string &	Weapon::getType()
 void	Weapon::setType(std::string p_name)
 {
 	this->_type = p_name;
+}
+
+
+Weapon::~Weapon(void)
+{
+	
 }

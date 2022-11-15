@@ -12,7 +12,7 @@ class HumanB
 		void	attack() const;
 
 	private:
-		Weapon		*_weapon;
+		Weapon		*_weapon;	
 		std::string	_name;
 };
 

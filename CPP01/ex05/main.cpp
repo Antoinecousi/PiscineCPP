@@ -9,4 +9,5 @@ int		main(int argc, char** argv)
 	Karen.complain("WARNING");
 	Karen.complain("ERROR");
 	Karen.complain("");
+	Karen.complain("dqdq");
 }

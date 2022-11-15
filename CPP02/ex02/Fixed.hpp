@@ -39,6 +39,8 @@ class Fixed
 		static	const Fixed &max(const Fixed &lhs, const Fixed &rhs);
 
 		static	Fixed &min(Fixed &lhs, Fixed &rhs);
+
+		int		decimals();
 		static	Fixed &max(Fixed &lhs, Fixed &rhs);
 
 		~Fixed(void);
