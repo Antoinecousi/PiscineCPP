@@ -1,9 +1,11 @@
 #ifndef MATERIASOURCE_HPP
 # define MATERIASOURCE_HPP
 #include <string>
-#include "IMateriaSource.hpp"
-#include "AMateria.hpp"
+# include "IMateriaSource.hpp"
+# include "AMateria.hpp"
 #include <iostream>
+
+class AMateria;
 
 class MateriaSource : public IMateriaSource
 {
@@ -16,9 +18,9 @@ class MateriaSource : public IMateriaSource
 		void learnMateria(AMateria*Matiere);
 		AMateria* createMateria(std::string const & type);
 
-	protected:
-		AMatiera*	_stocked[4];
-		int			count;
+	private:
+		AMateria*	_stocked[4];
+		int			_count;
 };
 
 #endif

@@ -1,11 +1,11 @@
 #include "Ice.hpp"
 
-Ice::Ice(void) : _type("ice")
+Ice::Ice(void) : AMateria("ice")
 {
 	std::cout << "Ice \"" << _type << "\" CONSTRUCTOR" << std::endl;
 }
 
-Ice::Ice(std::string type) : _type(type)
+Ice::Ice(std::string type) : AMateria(type)
 {
 	std::cout << "Ice \"" << _type << "\" CONSTRUCTOR" << std::endl;
 }
@@ -22,10 +22,17 @@ Ice::~Ice(void)
 
 Ice &	Ice::operator=(Ice const &rhs)
 {
-	
+	(void)rhs;
+	return *this;
 }
 
 AMateria*	Ice::clone() const
 {
-	
+	AMateria *real = new Ice(*this);
+	return (real);
+}
+
+void	Ice::use(ICharacter& target)
+{
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

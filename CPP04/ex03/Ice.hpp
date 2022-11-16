@@ -12,6 +12,7 @@ class Ice : public AMateria
 		Ice(Ice const &instance);
 		Ice &operator=(Ice const &rhs);
 		virtual AMateria* clone() const;
+		void	use(ICharacter& target);
 		~Ice(void);
 
 	private:

@@ -5,7 +5,7 @@ Character::Character(void) : _name("NoName"), _trash(NULL), _trash_count(0)
 	std::cout << "Character " << _name << " CONSTRUCTOR" << std::endl;
 }
 
-Character::Character(std::string name) : _name("NoName"), _trash(NULL), _trash_count(0)
+Character::Character(std::string name) : _name(name), _trash(NULL), _trash_count(0)
 {
 	std::cout << "Character " << _name << " CONSTRUCTOR" << std::endl;
 }
@@ -48,7 +48,9 @@ void Character::equip(AMateria* m)
 		std::cout << _name << "'s inventory is full!" << std::endl;
 		return;
 	}
+	puts("lol");
 	_slots[_slot_count] = m->clone();
+	puts("lol");
 	_slot_count++;
 }
 

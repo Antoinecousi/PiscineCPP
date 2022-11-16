@@ -1,11 +1,11 @@
 #include "Cure.hpp"
 
-Cure::Cure(void) : _type("cure")
+Cure::Cure(void) : AMateria("cure")
 {
 	std::cout << "Cure \"" << _type << "\" CONSTRUCTOR" << std::endl;
 }
 
-Cure::Cure(std::string type) : _type(type)
+Cure::Cure(std::string type) : AMateria(type)
 {
 	std::cout << "Cure \"" << _type << "\" CONSTRUCTOR" << std::endl;
 }
@@ -22,10 +22,18 @@ Cure::~Cure(void)
 
 Cure &	Cure::operator=(Cure const &rhs)
 {
-	
+	(void) rhs;
+	return *this;
 }
 
 AMateria*	Cure::clone(void) const
 {
-	
+	AMateria *real = new Cure(*this);
+	return (real);
+}
+
+
+void	Cure::use(ICharacter& target)
+{
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

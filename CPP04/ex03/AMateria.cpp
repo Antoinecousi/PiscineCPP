@@ -1,18 +1,18 @@
 #include "AMateria.hpp"
 
-AMateria::AMateria(void)
+AMateria::AMateria(void) : _type("Unknown Type")
 {
 	std::cout << "AMateria CONSTRUCTOR" << std::endl;
 }
 
-AMateria::AMateria(std::string const & type)
+AMateria::AMateria(std::string const & type) : _type(type)
 {
-	
+	std::cout << type << " AMateria CONSTRUCTOR" << std::endl;
 }
 
 AMateria::AMateria(AMateria const &instance)
 {
-	
+	*this = instance;
 }
 
 AMateria::~AMateria(void)
@@ -22,10 +22,18 @@ AMateria::~AMateria(void)
 
 void	AMateria::use(ICharacter& target)
 {
-	
+	std::cout << "* shoots a materia at " << target.getName() << " *" << std::endl;
 }
 
 AMateria &	AMateria::operator=(AMateria const &rhs)
 {
-	
+	if (this == &rhs)
+		return (*this);
+	_type = rhs._type;
+	return (*this);
+}
+
+std::string	AMateria::getType()
+{
+	return (_type);
 }
