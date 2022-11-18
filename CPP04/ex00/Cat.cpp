@@ -2,25 +2,26 @@
 
 Cat::Cat(void) : Animal("Cat")
 {
-	std::cout << "I don't like Cats :(" << std::endl;
+	std::cout << "Cat \"" << _type << " \" CONSTRUCTOR" << std::endl;
 }
 
 Cat::Cat(Cat const &instance)
 {
-	
+	*this = instance;
 }
 
 Cat::~Cat(void)
 {
-	std::cout << "miaou iaou mi .... aou ...... *dies*" << std::endl;
+	std::cout << "Animal \"" << _type << " \" DESTRUCTOR" << std::endl;
 }
 
 Cat &	Cat::operator=(Cat const &rhs)
 {
-	
+	this->_type = rhs._type;
+	return *this;
 }
 
 void	Cat::makeSound() const
 {
-	std::cout << "MMMMMMMMMMiaou" << std::endl;
+	std::cout << "Miaou" << std::endl;
 }

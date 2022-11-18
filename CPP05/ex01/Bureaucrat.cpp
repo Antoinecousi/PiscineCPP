@@ -27,7 +27,10 @@ Bureaucrat::~Bureaucrat(void)
 
 Bureaucrat 		&	Bureaucrat::operator=(Bureaucrat const &rhs)
 {
-	
+	if (this == &rhs)
+		return (*this);
+	Bureaucrat *tmp = new Bureaucrat(rhs);
+	return (*tmp);
 }
 
 std::ostream 	& operator<<(std::ostream & o, Bureaucrat const &rhs)

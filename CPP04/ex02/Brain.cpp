@@ -4,7 +4,6 @@ Brain::Brain(void)
 {
 }
 
-Brain::Brain(Brain const &instance)
 {
 	*this = instance;
 }

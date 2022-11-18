@@ -1,9 +1,13 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
 
 int main(void)
 {
 	{
+
+		//////////////////////////////////////////////////////
+		std::cout << std::endl << "FIRST TRY" << std::endl;
+		//////////////////////////////////////////////////////
+
 		try
 		{
 			Bureaucrat John;
@@ -12,6 +16,15 @@ int main(void)
 		{
 			std::cerr << e.what() << std::endl;
 		}
+
+
+
+
+
+		//////////////////////////////////////////////////////
+		std::cout << std::endl << "SECOND TRY" << std::endl;
+		//////////////////////////////////////////////////////
+
 		try
 		{
 			Bureaucrat William("William", 145);
@@ -20,6 +33,15 @@ int main(void)
 		{
 			std::cerr << e.what() << std::endl;
 		}
+
+
+
+
+
+		//////////////////////////////////////////////////////
+		std::cout << std::endl << "THIRD TRY" << std::endl;
+		//////////////////////////////////////////////////////
+
 		try
 		{
 			Bureaucrat Peter("Peter", 151);
@@ -28,6 +50,19 @@ int main(void)
 		{
 			std::cerr << e.what() << std::endl;
 		}	
+
+
+
+
+
+
+
+		
+
+		//////////////////////////////////////////////////////
+		std::cout << std::endl << "Fourth TRY" << std::endl;
+		//////////////////////////////////////////////////////
+
 		try
 		{
 			Bureaucrat Christian("Christian", 0);
@@ -36,6 +71,15 @@ int main(void)
 		{
 			std::cerr << e.what() << std::endl;
 		}
+
+
+
+
+
+		//////////////////////////////////////////////////////
+		std::cout << std::endl << "fifth TRY" << std::endl;
+		//////////////////////////////////////////////////////
+
 		try
 		{
 			Bureaucrat Johnny("Johnny", 5);
@@ -49,6 +93,15 @@ int main(void)
 		{
 			std::cerr << e.what() << std::endl;
 		}
+
+
+
+
+
+		//////////////////////////////////////////////////////
+		std::cout << std::endl << "sixth TRY" << std::endl;
+		//////////////////////////////////////////////////////
+
 		try
 		{
 			Bureaucrat Mary("Mary", 145);

@@ -13,7 +13,9 @@ class Cat : public Animal
 		Cat(Cat const &instance);
 		Cat &operator=(Cat const &rhs);
 		void	makeSound() const;
-		virtual ~Cat(void);
+		~Cat(void);
+		void insert_idea(int i, std::string str);
+		Brain & get_idea(void);
 
 	private:
 		Brain* _Vocer;

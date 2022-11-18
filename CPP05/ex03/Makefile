@@ -1,4 +1,4 @@
-NAME			=	polymorphism4
+NAME			=	Intern
 
 SRCS			=	${shell find -type f -name "*.cpp"}
 

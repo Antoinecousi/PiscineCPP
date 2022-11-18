@@ -15,9 +15,6 @@ class Ice : public AMateria
 		void	use(ICharacter& target);
 		~Ice(void);
 
-	private:
-	 	std::string	_type;
-
 };
 
 #endif

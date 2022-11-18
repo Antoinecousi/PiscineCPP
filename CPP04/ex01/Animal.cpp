@@ -27,7 +27,7 @@ std::string	Animal::getType() const
 
 void	Animal::makeSound() const
 {
-	std::cout << "MMMMMMMMMMiaouffffffffff" << std::endl;
+	std::cout << "*????* *????* *????* *????* *????* *????* *????*" << std::endl;
 }
 
 Animal &	Animal::operator=(Animal const &cp_target)

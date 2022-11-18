@@ -15,9 +15,6 @@ class Cure : public AMateria
 		~Cure(void);
 		void	use(ICharacter& target);
 		AMateria* clone(void) const;
-
-	private:
-		std::string	_type;
 };
 
 #endif

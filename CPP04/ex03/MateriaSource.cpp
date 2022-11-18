@@ -2,7 +2,7 @@
 
 MateriaSource::MateriaSource(void) : _count(0)
 {
-	std::cout << "MateriaSource CONSTRUCTOR" << std::endl;
+	// std::cout << "MateriaSource CONSTRUCTOR" << std::endl;
 }
 
 MateriaSource::MateriaSource(MateriaSource const &instance)
@@ -12,7 +12,9 @@ MateriaSource::MateriaSource(MateriaSource const &instance)
 
 MateriaSource::~MateriaSource()
 {
-	std::cout << "MateriaSource DESTRUCTOR" << std::endl;
+	// std::cout << "MateriaSource DESTRUCTOR" << std::endl;
+	for (int i = 0; i < this->_count; i++)
+		delete _stocked[i];
 }
 
 MateriaSource &	MateriaSource::operator=(MateriaSource const &rhs)
@@ -31,8 +33,7 @@ void	MateriaSource::learnMateria(AMateria*Matiere)
 	else
 	{
 		this->_stocked[_count] = Matiere;
-		std::cout << "Matiere posee au count " << _count << std::endl;
-		std::cout << this->_stocked[_count]->getType() << std::endl;
+		// std::cout << "Formule de la matiere " << this->_stocked[_count]->getType() << " learned at index " << _count << std::endl;
 		_count++;
 	}
 }
@@ -59,9 +60,10 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 			newMateria = tmp->clone();
 			delete tmp;
 			_count--;
+			// std::cout << newMateria->getType() << " is created at stocked number " << _count << std::endl;
 			return newMateria;
 		}
 	}
-	std::cout << type << " isn't a Materia." << std::endl;
+	// std::cout << type << " isn't a Materia." << std::endl;
 	return (NULL);
 }

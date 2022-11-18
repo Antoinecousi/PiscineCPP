@@ -2,22 +2,22 @@
 
 Animal::Animal() : _type("Animal")
 {
-	std::cout << "An unknown animal as appeared" << std::endl;
+	std::cout << "Animal \"" << _type << " \" CONSTRUCTOR" << std::endl;
 }
 
 Animal::Animal(std::string type) : _type(type)
 {
-	std::cout << "A " << type << " as appeared. ";
+	std::cout << "Animal \"" << _type << " \" CONSTRUCTOR" << std::endl;
 }
 
 Animal::Animal(Animal const &instance)
 {
-	
+	*this = instance;
 }
 
 Animal::~Animal(void)
 {
-	std::cout << "trepasse" << std::endl;
+	std::cout << "Animal \"" << _type << " \" DESTRUCTOR" << std::endl;
 }
 
 std::string	Animal::getType() const
@@ -27,7 +27,7 @@ std::string	Animal::getType() const
 
 void	Animal::makeSound() const
 {
-	std::cout << "MMMMMMMMMMiaouffffffffff" << std::endl;
+	std::cout << "  *????* *????* *????* *????* *????*   " << std::endl;
 }
 
 Animal &	Animal::operator=(Animal const &cp_target)

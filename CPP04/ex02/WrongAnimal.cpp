@@ -13,7 +13,7 @@ WrongAnimal::WrongAnimal(std::string	 type) : _type(type)
 
 WrongAnimal::WrongAnimal(WrongAnimal const &instance)
 {
-	
+	*this = instance;
 }
 
 WrongAnimal::~WrongAnimal(void)
@@ -23,7 +23,8 @@ WrongAnimal::~WrongAnimal(void)
 
 WrongAnimal &	WrongAnimal::operator=(WrongAnimal const &rhs)
 {
-	
+	this->_type = rhs._type;
+	return *this;
 }
 
 void	WrongAnimal::makeSound() const

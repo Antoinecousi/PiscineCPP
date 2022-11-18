@@ -2,14 +2,9 @@
 
 Dog::Dog(void) : Animal("Dog")
 {
-	std::cout << "I like dogs :)" << std::endl;
+	std::cout << "Dog CONSTRUCTOR" << std::endl;
 	_Vocer = new Brain;
 }
-
-// Dog::Dog()
-// {
-	
-// }
 
 Dog::Dog(Dog const &instance)
 {

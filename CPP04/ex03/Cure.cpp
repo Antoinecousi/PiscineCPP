@@ -2,34 +2,37 @@
 
 Cure::Cure(void) : AMateria("cure")
 {
-	std::cout << "Cure \"" << _type << "\" CONSTRUCTOR" << std::endl;
+	// std::cout << "Cure \"" << _type << "\" CONSTRUCTOR" << std::endl;
 }
 
 Cure::Cure(std::string type) : AMateria(type)
 {
-	std::cout << "Cure \"" << _type << "\" CONSTRUCTOR" << std::endl;
+	// std::cout << "Cure \"" << _type << "\" CONSTRUCTOR" << std::endl;
 }
 
 Cure::Cure(Cure const &instance)
 {
-	
+	*this = instance;
 }
 
 Cure::~Cure(void)
 {
-	std::cout << "Cure DESTRUCTOR" << std::endl;
+	// std::cout << "Cure DESTRUCTOR" << std::endl;
 }
 
 Cure &	Cure::operator=(Cure const &rhs)
 {
-	(void) rhs;
-	return *this;
+	if (this == &rhs)
+		return (*this);
+	_type = rhs._type;
+	return (*this);
 }
 
 AMateria*	Cure::clone(void) const
 {
-	AMateria *real = new Cure(*this);
-	return (real);
+	AMateria *cloning = new Cure(*this);
+	// std::cout << "Je viens de cloner " << cloning->getType() << std::endl;
+	return (cloning);
 }
 
 

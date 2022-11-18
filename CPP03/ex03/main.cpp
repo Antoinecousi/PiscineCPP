@@ -25,8 +25,9 @@ int main(void)
 	Mondanite.guardGate();
 	Mondanite.whoAmi();
 	Mondanite.attack("Ambroise");
-	Mondanite.takeDamage(100);
 	Mondanite.beRepaired(90);
-	
+	Mondanite.takeDamage(202);
+	Mondanite.beRepaired(90);
+
 	return (0);
 }

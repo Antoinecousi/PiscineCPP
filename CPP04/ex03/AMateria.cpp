@@ -2,12 +2,12 @@
 
 AMateria::AMateria(void) : _type("Unknown Type")
 {
-	std::cout << "AMateria CONSTRUCTOR" << std::endl;
+	// std::cout << _type << " AMateria CONSTRUCTOR" << std::endl;
 }
 
 AMateria::AMateria(std::string const & type) : _type(type)
 {
-	std::cout << type << " AMateria CONSTRUCTOR" << std::endl;
+	// std::cout << _type << " AMateria CONSTRUCTOR" << std::endl;
 }
 
 AMateria::AMateria(AMateria const &instance)
@@ -17,7 +17,7 @@ AMateria::AMateria(AMateria const &instance)
 
 AMateria::~AMateria(void)
 {
-	std::cout << "AMateria DESTRUCTOR" << std::endl;
+	// std::cout << "AMateria DESTRUCTOR" << std::endl;
 }
 
 void	AMateria::use(ICharacter& target)

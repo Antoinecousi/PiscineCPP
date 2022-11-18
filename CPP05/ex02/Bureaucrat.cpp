@@ -27,7 +27,10 @@ Bureaucrat::~Bureaucrat(void)
 
 Bureaucrat 		&	Bureaucrat::operator=(Bureaucrat const &rhs)
 {
-	
+	if (this == &rhs)
+		return (*this);
+	Bureaucrat *tmp = new Bureaucrat(rhs);
+	return (*tmp);
 }
 
 std::ostream 	& operator<<(std::ostream & o, Bureaucrat const &rhs)
@@ -70,6 +73,19 @@ void		Bureaucrat::signForm(Form &formulaire)
 	catch(const std::exception& e)
 	{
 		std::cerr << _name << " couldn't sign " << formulaire.get_name() << " because " << e.what() << std::endl;
+	}
+} 
+
+void		Bureaucrat::executeForm(Form const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << _name << " executed " << form.get_name() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
 	}
 	
 }

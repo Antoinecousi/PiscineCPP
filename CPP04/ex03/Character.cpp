@@ -1,13 +1,13 @@
 #include "Character.hpp"
 
-Character::Character(void) : _name("NoName"), _trash(NULL), _trash_count(0)
+Character::Character(void) : _name("NoName"), _trash(NULL), _trash_count(0), _slot_count(0)
 {
-	std::cout << "Character " << _name << " CONSTRUCTOR" << std::endl;
+	// std::cout << "Character " << _name << " CONSTRUCTOR " << std::endl;
 }
 
-Character::Character(std::string name) : _name(name), _trash(NULL), _trash_count(0)
+Character::Character(std::string name) : _name(name), _trash(NULL), _trash_count(0), _slot_count(0)
 {
-	std::cout << "Character " << _name << " CONSTRUCTOR" << std::endl;
+	// std::cout << "Character " << _name << " CONSTRUCTOR " << std::endl;
 }
 
 Character::Character(Character const &instance)
@@ -17,12 +17,14 @@ Character::Character(Character const &instance)
 
 Character::~Character(void)
 {
-	std::cout << "Character DESTRUCTOR" << std::endl;
+	// std::cout << "Character DESTRUCTOR" << std::endl;
 	for (int i = 0; i < _slot_count; i++)
+	{
 		delete _slots[i];
+	}
 	for (int i = 0; i < _trash_count; i++)
 		delete _trash[i];
-	delete *_trash;
+	delete [] _trash;
 }
 
 Character &	Character::operator=(Character const &rhs)
@@ -43,14 +45,14 @@ std::string const & Character::getName(void) const
 
 void Character::equip(AMateria* m)
 {
-	if (_slot_count == 4 && !m)
+	if (_slot_count == 4)
 	{
 		std::cout << _name << "'s inventory is full!" << std::endl;
-		return;
+		delete m;
+		return ;
 	}
-	puts("lol");
-	_slots[_slot_count] = m->clone();
-	puts("lol");
+	// std::cout << "My slot count is : " << _slot_count << std::endl;
+	_slots[_slot_count] = m;
 	_slot_count++;
 }
 
@@ -85,7 +87,8 @@ void Character::unequip(int idx)
 
 void	Character::use(int idx, ICharacter& target)
 {
-	if (idx < _slot_count)
+	// std::cout << idx << "  " << _slot_count << std::endl;
+	if (idx < _slot_count && idx >= 0)
 		_slots[idx]->use(target);
 	else
 		std::cout << "The inventory's index required is unset..." << std::endl;

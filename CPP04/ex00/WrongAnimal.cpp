@@ -1,19 +1,19 @@
 #include "WrongCat.hpp"
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal(void)
+WrongAnimal::WrongAnimal(void) : _type("WrongAnimal")
 {
-	std::cout << "wrong Animal is created" << std::endl;
+	std::cout << "WrongAnimal \"" << _type << " \" CONSTRUCTOR" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(std::string	 type) : _type(type)
 {
-		std::cout << "A WrongAnimal is created, its a " << type << std::endl;
+	std::cout << "WrongAnimal \"" << _type << " \" CONSTRUCTOR" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(WrongAnimal const &instance)
 {
-	
+	std::cout << "WrongAnimal \"" << _type << " \" DESTRUCTOR" << std::endl;
 }
 
 WrongAnimal::~WrongAnimal(void)
@@ -23,7 +23,8 @@ WrongAnimal::~WrongAnimal(void)
 
 WrongAnimal &	WrongAnimal::operator=(WrongAnimal const &rhs)
 {
-	
+	this->_type = rhs._type;
+	return *this;
 }
 
 void	WrongAnimal::makeSound() const

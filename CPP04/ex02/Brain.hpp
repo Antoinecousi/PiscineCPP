@@ -7,7 +7,6 @@ class Brain
 {
 	public:
 		Brain(void);
-		// Brain();
 		Brain(Brain const &instance);
 		Brain &operator=(Brain const &rhs);
 		virtual ~Brain(void);

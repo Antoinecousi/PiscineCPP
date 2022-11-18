@@ -28,16 +28,25 @@ int main(void)
 	Bureaucrat Britney("Britney", 50);
 	Form	f("formulaire", 49, 50);
 	Form	visa("visa", 49, 49);
-	std::cout << Britney << std::endl;
+	std::cout << Britney;
 
-	std::cout << f << std::endl;
+	std::cout << f;
 	Britney.signForm(f);
-	std::cout << f << std::endl;
+	std::cout << f;
 	
 
-	std::cout << visa << std::endl;
+	std::cout << visa;
 	Britney.signForm(visa);
-	std::cout << visa << std::endl;
+	std::cout << visa;
+
+	Britney.increaseGrade();
+	std::cout << Britney;
+	Britney.signForm(visa);
+	std::cout << visa;
+
+	std::cout << visa;
+	Britney.signForm(visa);
+	std::cout << visa;
 
 
 	std::cout << "\n\n\n\n\n\n";

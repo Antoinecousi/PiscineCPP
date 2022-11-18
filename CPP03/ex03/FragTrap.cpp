@@ -51,3 +51,8 @@ void	FragTrap::highFivesGuys(void)
 {
 	std::cout << "*needily* : Can you give me high fives ?????" << std::endl;
 }
+
+int	FragTrap::setAtk()
+{
+	return (30);
+}

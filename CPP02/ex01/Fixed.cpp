@@ -33,7 +33,7 @@ std::ostream & operator<<(std::ostream & o, const Fixed & rhs)
 Fixed &	Fixed::operator=(Fixed const &rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->_decimals = rhs.getRawBits();
+	this->_decimals = rhs.getRawBits();	
 	return (*this);
 }
 
