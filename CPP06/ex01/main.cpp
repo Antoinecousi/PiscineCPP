@@ -30,4 +30,5 @@ int			main()
 	std::cout << "  serialize " << &ptr_serialized << std::endl;
 	Bob = deserialize(ptr_serialized);
 	std::cout << "deserialize " << &Bob << "Age : " << Bob->age << " taille :" << Bob->taille << std::endl;
+	delete Bob;
 }
