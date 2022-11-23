@@ -42,11 +42,11 @@ int main(void)
 			std::cerr << e.what() << std::endl;
 		}
 	}
-	std::vector<int>	tab(42, 0);
+	std::vector<float>	tab(42, 0);
 	
-	for (int i = 0; i < 30 ; i++)
+	for (float i = 0; i < 30 ; i++)
 		tab[i] = rand() % 42 + 1;
-	for (int i = 0; i < 30 ; i++)
+	for (float i = 0; i < 30 ; i++)
 		std::cout << tab[i] << " ";
 	std::cout << std::endl;
 		try 

@@ -6,16 +6,35 @@
 #include <vector>
 #include <algorithm>
 
+class NoSpace : public std::exception
+{
+	public :
+		const char * what() const throw()
+		{
+			return "Vector has no space left";
+		}
+};
+
+class WrongSize : public std::exception
+{
+	public :
+		const char * what() const throw()
+		{
+			return "Vector doesn't have a convenient size";
+		}
+};
+
 class Span
 {
 	public:
+		Span();
 		Span(unsigned int nb);
 		Span(Span const &instance);
 		Span &operator=(Span const &rhs);
 		~Span(void);
 
 		template<typename I>
-		void				addALotOfNumbers(I itstart, I itend, int min, int max);
+		void				addALotOfNumbers(I itstart, I itend);
 		void				addNumber(int add);
 		int					shortestSpan();
 		int					longestSpan();
@@ -31,16 +50,16 @@ class Span
 std::ostream	&operator<<(std::ostream & o, Span & rhs);
 
 template<typename I>
-void				addALotOfNumbers(I itstart, I itend)
+void				Span::addALotOfNumbers(I itstart, I itend)
 {
+	srand(time(0));
 	for ( ; itstart < itend ; itstart++)
 	{
 		if (_vect_int.size() == _max)
-			throw SizeFull();
+			throw NoSpace();
 		else
-			_vect_int.push_back(rand() % 1000 + 1);
+			_vect_int.push_back(rand() % 150053 + 1);
 	}
 }
-
 
 #endif
