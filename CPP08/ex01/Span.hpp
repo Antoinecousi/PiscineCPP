@@ -5,6 +5,8 @@
 #include <cstdlib>
 #include <vector>
 #include <algorithm>
+#include <unistd.h>
+#include <sys/time.h>
 
 class NoSpace : public std::exception
 {
@@ -52,7 +54,10 @@ std::ostream	&operator<<(std::ostream & o, Span & rhs);
 template<typename I>
 void				Span::addALotOfNumbers(I itstart, I itend)
 {
-	srand(time(0));
+	struct timeval	now;
+
+	gettimeofday(&now, NULL);;
+	srand(now.tv_usec);
 	for ( ; itstart < itend ; itstart++)
 	{
 		if (_vect_int.size() == _max)

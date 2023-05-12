@@ -23,8 +23,8 @@ Span &	Span::operator=(Span const &rhs)
 	if (&rhs == this)
 		return *this;
 	_max = rhs.get_max();
-	_vect_int.resize(_max);
 	std::vector<int> copied = rhs.get_vect_int();
+	_vect_int = copied;
 	std::copy(copied.begin(), copied.end(), _vect_int.begin());
 	return *this;
 }
@@ -51,12 +51,12 @@ int	Span::shortestSpan()
 		throw WrongSize();
 
 	unsigned int		tmp = 4294967295;
-	Span	*copy;
+	Span	copy;
 
-	copy = this;
-	std::sort(copy->_vect_int.begin(), copy->_vect_int.end());
-	std::vector<int>::iterator start = copy->_vect_int.begin();
-	for (; start < copy->_vect_int.end() - 1 ; start++)
+	copy = *this;
+	std::sort(copy._vect_int.begin(), copy._vect_int.end());
+	std::vector<int>::iterator start = copy._vect_int.begin();
+	for (; start < copy._vect_int.end() - 1 ; start++)
 	{
 		int	diff = ((*(start + 1) - *start) * (*(start + 1) > *start)) + ((*start - *(start + 1) ) * (*start > *(start + 1)));
 		if (tmp > diff)
@@ -69,14 +69,12 @@ int	Span::longestSpan()
 {
 	if (_vect_int.size() < 2 )
 		throw WrongSize();
+	Span	copy;
 
-	unsigned int		tmp = 0;
-	Span	*copy;
-
-	copy = this;
-	std::sort(copy->_vect_int.begin(), copy->_vect_int.end());
-	std::vector<int>::iterator start = copy->_vect_int.begin();
-	std::vector<int>::iterator end = copy->_vect_int.end() - 1;
+	copy = *this;
+	std::sort(copy._vect_int.begin(), copy._vect_int.end());
+	std::vector<int>::iterator start = copy._vect_int.begin();
+	std::vector<int>::iterator end = copy._vect_int.end() - 1;
 	return (*end - *start);
 }
 
