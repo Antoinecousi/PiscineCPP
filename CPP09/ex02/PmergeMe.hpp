@@ -28,6 +28,10 @@ class PmergeMe
 		std::vector<int>	_vector;
 		std::list<int>		_list;
 		unsigned int		_size;
+		int					_timeMergeSortVector;
+		int					_timeFullVector;
+		int					_timeMergeSortList;
+		int					_timeFullList;
 };
 
 unsigned long long int	time_now_in_us(void);
