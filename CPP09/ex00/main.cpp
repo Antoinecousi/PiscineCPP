@@ -1,5 +1,11 @@
 #include "BitcoinExchange.hpp"
 
+bool isFile(const std::string& name)
+{
+    struct stat buffer;   
+    return (stat(name.c_str(), &buffer) == 0 && !S_ISDIR(buffer.st_mode)); 
+}
+
 int	main(int ac, char **argv)
 {
 
@@ -13,6 +19,12 @@ int	main(int ac, char **argv)
 	std::string		line;
 	std::string		*str;
 	BitcoinExchange	*btc;
+
+	if (!isFile(argv[1]))
+	{
+		std::cout << "Error: could not open file!" << std::endl;
+		return (1);
+	}
 
 	if (file.is_open())
 	{

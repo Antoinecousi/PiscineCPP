@@ -3,8 +3,6 @@
 BitcoinExchange::BitcoinExchange(std::ifstream &file)
 {
 	std::string line;
-	std::string date;
-	std::string	value;
 	float		valueFloat;
 
 	fillWallet();
@@ -50,7 +48,7 @@ int	BitcoinExchange::parsing(std::string line)
 	value = line.substr(line.find('|') + 1);
 	if (isInt(date.substr(0, line.find('-'))) ||
 		IsValidDate(date.substr(date.find('-') + 1, 5), date.substr(0, line.find('-'))) ||
-		countDays(date) > 738553)
+		countDays(date) > 739037)
 	{
 		std::cout << "Error: bad date input => " << date << std::endl;
 		return (1);
@@ -70,7 +68,7 @@ int	BitcoinExchange::parsing(std::string line)
 		std::cout << "Error: too large number." << std::endl;
 		return (1);
 	}
-	std::cout << line << " => " << convertInDollars(date, stof(value)) << std::endl;
+	std::cout << date << "=> " << stof(value) << " = " << convertInDollars(date, stof(value)) << std::endl;
 	return (0);
 }
 
@@ -96,26 +94,30 @@ void	BitcoinExchange::fillWallet(void)
 
 float	BitcoinExchange::convertInDollars(std::string date, float value)
 {
-
 	std::map<std::string, float>::iterator it;
 	float result;
 	int dateCount = countDays(date);
 	int dateCount2;
 
+	if (dateCount <= 734367)
+		return (0);
 	it = _wallet.begin();
 	while (it != _wallet.end())
 	{
 		dateCount2 = countDays(it->first);
-		if (dateCount == dateCount2 || 
-			dateCount == dateCount2 - 1 ||
-			dateCount == dateCount2 - 2)
+		if (dateCount2 == dateCount)
 			break;
+		if (dateCount2 > dateCount)
+		{
+			it--;
+			break ;
+		}
 		it++;
 	}
-	// std::cout << it->first << std::endl;
-	// std::cout << value << " * " << it->second << " = " << value * it->second << std::endl;
+	if (it == _wallet.end())
+		it--;
 	result = value * it->second;
-	return (1);
+	return (result);
 }
 
 const bool	BitcoinExchange::IsValidDate(const std::string &monthDay, const std::string &year)
@@ -123,8 +125,10 @@ const bool	BitcoinExchange::IsValidDate(const std::string &monthDay, const std::
 	std::map<std::string, float>::iterator it;
 	std::string dateWall;
 
-	if (monthDay == "29-02" && !((stoi(year) % 4 == 0 && stoi(year) % 100 != 0) || stoi(year) % 400 == 0))
+	if (monthDay == "02-29" && !((stoi(year) % 4 == 0 && stoi(year) % 100 != 0) || stoi(year) % 400 == 0))
 		return (true);
+	if (monthDay == "02-29")
+		return (false);
 	it = _wallet.begin();
 	while (it != _wallet.end())
 	{
@@ -137,35 +141,25 @@ const bool	BitcoinExchange::IsValidDate(const std::string &monthDay, const std::
 
 const bool	isFloat(const std::string &str)
 {
-	int i = 0;
-	bool point = false;
+    size_t idx;
+    try
+    {
+        float f = std::stof(str, &idx);   
+    }
+    catch (const std::invalid_argument &)
+    {
+        return false;
+    }
 
-	try
-	{
-		std::stof(str);
-	}
-	catch (const std::invalid_argument &)
-	{
-		return (false);
-	}
-	// while (str[i] == ' ' || str[i] == '\t' || str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
-	// 	i++;
-	// if (str[i] == '+')
-	// 	i++;
-	// while (str[i])
-	// {
-	// 	if (!(str[i] >= '0' && str[i] <= '9') && str[i] != '.')
-	// 	{
-	// 		break ;
-	// 		// if (str[i] == '')
-	// 	}
-	// 	i++;
-	// }
-	// while (str[i] == ' ' || str[i] == '\t' || str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
-	// 	i++;
-	// if (str[i] != '\0')
-	// 	return (false);
-	return (true);
+    for(size_t i = idx; i < str.size(); i++)
+    {
+        if(!std::isspace(str[i]))
+        {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 const bool	isInt(const std::string &str)
@@ -185,7 +179,7 @@ const int	countDays(const std::string &date)
 {
 	int year = std::stoi(date.substr(0, date.find('-')));
 	int month = std::stoi(date.substr(date.find('-') + 1, date.find('-')));
-	int day = std::stoi(date.substr(date.find('-') + 3, date.find('-')));
+	int day = std::stoi(date.substr(date.find('-') + 4, date.find('-')));
     int days = 0;
     int month_days[] = {31,28,31,30,31,30,31,31,30,31,30,31};
 	

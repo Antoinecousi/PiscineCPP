@@ -12,6 +12,7 @@ int main(int argc, char **argv)
 
 	while (i < argc)
 	{
+		j = 0;
 		while (argv[i][j])
 		{
 			if ((argv[i][j] < '0' || argv[i][j] > '9') && argv[i][j] != '+')
@@ -19,7 +20,12 @@ int main(int argc, char **argv)
 				std::cout << "Error" << std::endl;
 				return (1);
 			}
-			if (argv[i][j] == '+' && argv[i][j + 1] == '+') // check segfault
+			if ((argv[i][j] == '+' && j > 0) || (argv[i][j] == '+' && (argv[i][j+1] < '0' || argv[i][j+1] > '9')))
+			{
+				std::cout << "Error" << std::endl;
+				return (1);
+			}
+			if (std::atoi(argv[i]) < 1 || std::atol(argv[i]) > 2147483647)
 			{
 				std::cout << "Error" << std::endl;
 				return (1);
